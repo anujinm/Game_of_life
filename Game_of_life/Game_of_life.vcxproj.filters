@@ -21,6 +21,12 @@
     <ClInclude Include="matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="By_Generation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="By_Queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
