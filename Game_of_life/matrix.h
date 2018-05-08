@@ -2,6 +2,11 @@
 #define MATRIX_H
 #include <iostream>
 
+#include <Windows.h>
+#include <random>
+#include <ctime>
+
+
 
 class Matrix {
 private:
@@ -74,10 +79,13 @@ public:
 	}
 
 	void print_pretty() {
+		//srand(time(NULL));
+
 		char c = 219;
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
 				if (matrix[i][j] == 1) {
+					//SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (rand() % 7) + 9);   // random color ( 5)
 					std::cout << c << c;
 				}
 				else {

@@ -19,7 +19,7 @@ void hidecursor()
 int main()
 {
 	hidecursor();
-	newGame *game = new By_Queue(30, 40);
+	newGame *game = new newGame(30, 40);
 
 	game->set_state_random();
 	for (int i = 0; i < 100; i++) {
