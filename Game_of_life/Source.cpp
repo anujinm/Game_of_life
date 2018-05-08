@@ -21,7 +21,7 @@ int main()
 	hidecursor();
 	newGame *game = new By_Queue(30, 40);
 
-	game->set_state_1();
+	game->set_state_random();
 	for (int i = 0; i < 100; i++) {
 		system("CLS");
 		game->print();

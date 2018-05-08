@@ -2,6 +2,11 @@
 #include <iostream>
 #include "matrix.h"
 
+#include <random>
+#include <ctime>
+
+
+
 class newGame {
 protected:
 	int row;
@@ -109,6 +114,18 @@ public:
 		set(3, 35, 1);
 		set(4, 34, 1);
 		set(4, 35, 1);
+	}
+
+	void set_state_random() {
+		srand(time(NULL));
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				if (rand() % 3 == 0)
+					set(i, j, 1);
+				else
+					set(i, j, 0);
+			}
+		}
 	}
 
 	void print() {
