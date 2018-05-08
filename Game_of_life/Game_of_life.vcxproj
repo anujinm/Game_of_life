@@ -23,7 +23,7 @@
     <ProjectGuid>{C52CAB01-2739-4D72-9A74-35E68AB0F82A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Game_of_life</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

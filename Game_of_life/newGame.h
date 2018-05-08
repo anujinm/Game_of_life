@@ -3,11 +3,17 @@
 #include "matrix.h"
 
 class newGame {
-private:
+protected:
 	int row;
 	int col;
 	Matrix *matrix;
 	Matrix *next_matrix;
+
+	struct cell {
+		int row;
+		int col;
+	};
+
 public:
 	newGame() {
 		matrix = NULL;
@@ -170,7 +176,7 @@ public:
 		}
 	}
 
-private:
+protected:
 	int live_count(int i, int j) {
 		int count = 0; //count neighbours
 

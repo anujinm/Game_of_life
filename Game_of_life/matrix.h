@@ -32,6 +32,7 @@ public:
 	~Matrix() {
 		for (int i = 0; i < row; i++) {
 			delete matrix[i];
+			// matrix[i] = NULL ?   just wondering...
 		}
 		delete matrix;
 		matrix = NULL;
