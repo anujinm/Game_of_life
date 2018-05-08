@@ -13,6 +13,7 @@ class By_Generation : public newGame
 {
 private:
 	int zombie_mode_wait_rate;
+	// HASHMAP
 
 public:
 	By_Generation() : newGame() {}

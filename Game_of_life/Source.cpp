@@ -4,6 +4,7 @@
 #include<Windows.h>
 
 #include "newGame.h"
+#include "By_Queue.h"
 using namespace std;
 
 void hidecursor()
@@ -18,14 +19,14 @@ void hidecursor()
 int main()
 {
 	hidecursor();
-	newGame *game = new newGame(30, 40);
+	newGame *game = new By_Queue(30, 40);
 
 	game->set_state_1();
 	for (int i = 0; i < 100; i++) {
 		system("CLS");
 		game->print();
 		game->iterate();
-		Sleep(100);
+		Sleep(300);
 	}
 
 

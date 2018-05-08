@@ -123,7 +123,7 @@ public:
 		copy_backward();
 	}
 	//Rule 1: Any live cell with fewer than two live neighbors dies, as if caused by under population.
-	void rule_1() {
+	virtual void rule_1() {
 		int live = 0;
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
@@ -149,7 +149,7 @@ public:
 		}
 	}
 	// Rule 3: Any live cell with more than three live neighbors dies, as if by overpopulation.
-	void rule_3() {
+	virtual void rule_3() {
 		int live = 0;
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
@@ -162,7 +162,7 @@ public:
 		}
 	}
 	// Rule 4: Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.		
-	void rule_4() {
+	virtual void rule_4() {
 		int live = 0;
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {

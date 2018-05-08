@@ -14,7 +14,8 @@ class By_Queue : public newGame
 {
 private:
 	int resurrection_rate;
-	std::deque<cell> dead_queue;
+	std::deque<int> dead_queue;
+	// HOW SHOULD I ADD POSITIONS TO THE QUEUE ?   JUST ADD NUMBERS OR USE A STRUCT ?
 
 public:
 	By_Queue() : newGame() {}
@@ -27,7 +28,7 @@ public:
 	}
 
 
-	// wait....  do we add them to the queue   when they die   or   when they are resurrected ?
+	// WAIT....  DO WE ADD THEM TO THE QUEUE   WHEN THEY DIE   OR   WHEN THEY ARE RESURRECTED ?
 	
 	void rule_1() {
 		int live = 0;
@@ -38,6 +39,8 @@ public:
 					if (live < 2) {
 						next_matrix->set(i, j, 0);
 						// ADD TO QUEUE
+						dead_queue.push_back(i);
+						dead_queue.push_back(j);
 					}
 				}
 			}
@@ -52,13 +55,25 @@ public:
 					if (live > 3) {
 						next_matrix->set(i, j, 0);
 						// ADD TO QUEUE
+						dead_queue.push_back(i);
+						dead_queue.push_back(j);
 					}
 				}
 			}
 		}
 	}
 	void rule_4() {
+		//resurrect first n dead cells from queue in every generation
+		for (int i = 0; i < 10; i++){
+			if (dead_queue.empty() == false) {
+				int r = dead_queue.front();
+				dead_queue.pop_front();
+				int c = dead_queue.front();
+				dead_queue.pop_front();
 
+				next_matrix->set(r, c, 1);
+			}
+		}
 	}
 
 };
