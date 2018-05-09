@@ -14,10 +14,10 @@ protected:
 	Matrix *matrix;
 	Matrix *next_matrix;
 
-	struct cell {
+	/*struct cell {
 		int row;
 		int col;
-	};
+	};*/
 
 public:
 	newGame() {

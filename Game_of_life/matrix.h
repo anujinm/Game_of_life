@@ -85,7 +85,7 @@ public:
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
 				if (matrix[i][j] == 1) {
-					//SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (rand() % 7) + 9);   // random color ( 5)
+					//SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (rand() % 7) + 9);   // random color (9-15)
 					std::cout << c << c;
 				}
 				else {
