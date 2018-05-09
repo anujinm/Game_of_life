@@ -7,6 +7,8 @@
 #include "By_Queue.h"
 using namespace std;
 
+
+
 void hidecursor()
 {
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -19,6 +21,8 @@ void hidecursor()
 void move_cursor_to_zero() {
 	// I'M USING THIS TO TRY TO REDUCE THE CONSOLE FLICKERING ON EVERY SCREEN REFRESH
 	// https://stackoverflow.com/questions/34842526/update-console-without-flickering-c/34843392?noredirect=1#comment57465505_34843392    might wanna check this ???
+	// http://www.cplusplus.com/forum/articles/10515/
+	// OR COULD TRY   DOUBLE BUFFERING   TOO ...
 
 	// code from cs2 final project lol
 	//change console cursor's position
@@ -39,7 +43,7 @@ int main()
 		move_cursor_to_zero();
 		game->print();
 		game->iterate();
-		Sleep(100);
+		Sleep(300);
 	}
 
 
