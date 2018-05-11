@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
-#include "matrix.h"
-
 #include <random>
 #include <ctime>
+
+#include "matrix.h"
 
 
 
@@ -132,7 +132,7 @@ public:
 		matrix->print_pretty();
 	}
 
-	void iterate() {
+	virtual void iterate() {
 		rule_1();
 		rule_2();
 		rule_3();

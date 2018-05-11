@@ -23,13 +23,17 @@ public:
 	~By_Queue() {}
 
 
-	void set_state_queue() {
-
-	}
-
 
 	// WAIT....  DO WE ADD THEM TO THE QUEUE   WHEN THEY DIE   OR   WHEN THEY ARE RESURRECTED ?   NVM I THINK IT'S THE SAME THING..
 	
+	void iterate() {
+		rule_1();
+		rule_2();
+		rule_3();
+		rule_4();
+		copy_backward();
+	}
+
 	void rule_1() {
 		int live = 0;
 		for (int i = 0; i < row; i++) {

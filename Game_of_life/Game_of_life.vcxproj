@@ -143,6 +143,7 @@
     <ClInclude Include="By_Queue.h" />
     <ClInclude Include="matrix.h" />
     <ClInclude Include="newGame.h" />
+    <ClInclude Include="welcome_screen.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />

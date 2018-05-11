@@ -1,7 +1,7 @@
 #pragma once
 #define MATRIX_H
-#include <iostream>
 
+#include <iostream>
 #include <Windows.h>
 #include <random>
 #include <ctime>

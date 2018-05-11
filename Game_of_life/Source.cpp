@@ -1,11 +1,12 @@
 #include<iostream>
-#include "matrix.h"
 #include<stdlib.h>
 #include<Windows.h>
 
+#include "matrix.h"
 #include "newGame.h"
 #include "By_Queue.h"
-using namespace std;
+//using namespace std;
+#include "welcome_screen.h"
 
 
 
@@ -34,6 +35,7 @@ void move_cursor_to_zero() {
 
 int main()
 {
+	welcome::start_screen();
 	hidecursor();
 	newGame *game = new By_Queue(30, 40);
 
