@@ -5,6 +5,7 @@
 #include "matrix.h"
 #include "newGame.h"
 #include "By_Queue.h"
+#include "By_Generation.h"
 //using namespace std;
 #include "welcome_screen.h"
 
@@ -37,10 +38,10 @@ int main()
 {
 	welcome::start_screen();
 	hidecursor();
-	newGame *game = new By_Queue(30, 40);
+	newGame *game = new By_Generation(30, 40);
 
 	game->set_state_random();
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 1000; i++) {
 		//system("CLS");
 		move_cursor_to_zero();
 		game->print();

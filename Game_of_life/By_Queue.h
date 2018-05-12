@@ -15,7 +15,6 @@ class By_Queue : public newGame
 private:
 	int resurrection_rate = 10;
 	std::deque<int> dead_queue;
-	// HOW SHOULD I ADD POSITIONS TO THE QUEUE ?   JUST ADD NUMBERS OR USE A STRUCT ?    OK I'M USING NUMBERS..
 
 public:
 	By_Queue() : newGame() {}
@@ -23,8 +22,6 @@ public:
 	~By_Queue() {}
 
 
-
-	// WAIT....  DO WE ADD THEM TO THE QUEUE   WHEN THEY DIE   OR   WHEN THEY ARE RESURRECTED ?   NVM I THINK IT'S THE SAME THING..
 	
 	void iterate() {
 		rule_1();
