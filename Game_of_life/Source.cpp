@@ -29,15 +29,18 @@ void move_cursor_to_zero() {
 	// code from cs2 final project lol
 	//change console cursor's position
 	static CONSOLE_SCREEN_BUFFER_INFO csbi;
+	static HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	csbi.dwCursorPosition.X = 0;
 	csbi.dwCursorPosition.Y = 0;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), csbi.dwCursorPosition);
+	SetConsoleCursorPosition(consoleHandle, csbi.dwCursorPosition);
 }
 
 int main()
 {
+	system("cls");
 	welcome::start_screen();
 	hidecursor();
+
 	newGame *game = new By_Generation(30, 40);
 
 	game->set_state_random();

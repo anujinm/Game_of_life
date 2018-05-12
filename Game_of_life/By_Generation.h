@@ -78,7 +78,7 @@ public:
 		}
 	}
 	void rule_4() {
-		// resurrection
+		// resurrection by generation
 
 		int resr_gen = generation - zombie_mode_wait_rate;
 

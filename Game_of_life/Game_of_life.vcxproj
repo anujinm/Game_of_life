@@ -146,6 +146,7 @@
     <ClInclude Include="welcome_screen.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="newGame.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
