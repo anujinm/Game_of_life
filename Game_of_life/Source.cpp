@@ -38,10 +38,18 @@ void move_cursor_to_zero() {
 int main()
 {
 	system("cls");
-	welcome::start_screen();
 	hidecursor();
+	welcome::start_screen();
 
-	newGame *game = new By_Generation(30, 40);
+	newGame *game;
+	int choice = welcome::choose_what_to_do();
+	if (choice==1)
+		game = new newGame(30, 40);
+	else if (choice == 2)
+		game = new By_Generation(30, 40);
+	else if (choice==3)
+		game = new By_Queue(30, 40);
+
 
 	game->set_state_random();
 	for (int i = 0; i < 1000; i++) {
@@ -52,6 +60,7 @@ int main()
 		Sleep(300);
 	}
 
+	delete game; game = NULL;
 
 	return 0;
 }

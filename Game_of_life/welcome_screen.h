@@ -46,16 +46,16 @@ namespace welcome {
 
 		bool flag = true;
 		while (true) {
+			// infinite loop to wait for user input
 			ReadConsoleInput(hin, &input_record, 1, &events);
 			if (input_record.EventType == MOUSE_EVENT) {   // if clicked
-				if (input_record.Event.MouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED) {
+				if (input_record.Event.MouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED) {   // if left-click
 					///std::cout << "sup bruh" << std::endl;
 					coord.X = input_record.Event.MouseEvent.dwMousePosition.X;   // get positions
 					coord.Y = input_record.Event.MouseEvent.dwMousePosition.Y;
 					///std::cout << coord.X << std::endl;
 					///std::cout << coord.Y << std::endl;
-					//check if inside box
-					if (coord.X>0 && coord.X<39 && coord.Y>0 && coord.Y<7) {
+					if (coord.X>0 && coord.X<39 && coord.Y>0 && coord.Y<7) {   // if clicked inside box
 						flag = false;
 						break;
 					}
@@ -67,8 +67,17 @@ namespace welcome {
 
 	}
 
-	static char choose_what_to_do() {
 
+
+	static int choose_what_to_do() {
+		std::cout << "1. newGame" << std::endl;
+		std::cout << "2. By_Generation" << std::endl;
+		std::cout << "3. By_Queue" << std::endl;
+
+		int choice;
+		std::cin >> choice;
+
+		return choice;
 	}
 
 }
