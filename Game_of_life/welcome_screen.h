@@ -20,16 +20,17 @@ namespace welcome {
 			When this 'Quick Edit Mode' options' checkbox is unchecked (disabled), then program runs fine as intended/coded in this sample-code here, telling/printing all Mouse events.
 			NOTE: The change in 'Console Properties' requires relaunch of the console, to take effect.*/
 		
-
-		std::cout << "****************************************" << std::endl;
-		std::cout << "*      ____ _____  _    ____ _____     *" << std::endl;
-		std::cout << "*     / ___|_   _|/ \\  |  _ \\_   _|    *" << std::endl;
-		std::cout << "*     \\___ \\ | | / _ \\ | |_) || |      *" << std::endl;
-		std::cout << "*      ___) || |/ ___ \\|  _ < | |      *" << std::endl;
-		std::cout << "*     |____/ |_/_/   \\_\\_| \\_\\|_|      *" << std::endl;
-		std::cout << "*                                      *" << std::endl;
-		std::cout << "****************************************" << std::endl;
-
+		std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+		std::cout << "                                    ****************************************" << std::endl;
+		std::cout << "                                    *      ____ _____  _    ____ _____     *" << std::endl;
+		std::cout << "                                    *     / ___|_   _|/ \\  |  _ \\_   _|    *" << std::endl;
+		std::cout << "                                    *     \\___ \\ | | / _ \\ | |_) || |      *" << std::endl;
+		std::cout << "                                    *      ___) || |/ ___ \\|  _ < | |      *" << std::endl;
+		std::cout << "                                    *     |____/ |_/_/   \\_\\_| \\_\\|_|      *" << std::endl;
+		std::cout << "                                    *                                      *" << std::endl;
+		std::cout << "                                    ****************************************" << std::endl;
+		int x = 36; int x_size = 39;
+		int y = 12; int y_size = 7;   // location and size of button
 
 
 		// GET MOUSE CLICK
@@ -53,9 +54,9 @@ namespace welcome {
 					///std::cout << "sup bruh" << std::endl;
 					coord.X = input_record.Event.MouseEvent.dwMousePosition.X;   // get positions
 					coord.Y = input_record.Event.MouseEvent.dwMousePosition.Y;
-					///std::cout << coord.X << std::endl;
-					///std::cout << coord.Y << std::endl;
-					if (coord.X>0 && coord.X<39 && coord.Y>0 && coord.Y<7) {   // if clicked inside box
+					//std::cout << coord.X << std::endl;
+					//std::cout << coord.Y << std::endl;
+					if (coord.X>x && coord.X<(x+x_size) && coord.Y>y && coord.Y<(y+y_size)) {   // if clicked inside box
 						flag = false;
 						system("cls");
 						break;
@@ -71,10 +72,13 @@ namespace welcome {
 
 
 	static int choose_what_to_do() {
-		std::cout << "1. Original game" << std::endl;
-		std::cout << "2. By_Generation" << std::endl;
-		std::cout << "3. By_Queue" << std::endl;
+		std::cout << "*************************" << std::endl;
+		std::cout << "* 1. Original game      *" << std::endl;
+		std::cout << "* 2. By_Generation      *" << std::endl;
+		std::cout << "* 3. By_Queue           *" << std::endl;
+		std::cout << "*************************" << std::endl;
 
+		std::cout << "\n\n\n\n\nEnter you choice: ";
 		int choice;
 		std::cin >> choice;
 

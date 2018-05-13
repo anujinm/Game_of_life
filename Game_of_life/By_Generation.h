@@ -1,8 +1,9 @@
 #pragma once
 
-#include "newGame.h"
 #include <map>
 #include <list>
+
+#include "newGame.h"
 
 
 
@@ -16,8 +17,7 @@ class By_Generation : public newGame
 private:
 	int zombie_mode_wait_rate = 5;
 	int generation;
-	// HASHMAP
-	std::map<int, std::list<int>> dead_generation_map;
+	std::map<int, std::list<int>> dead_generation_map;   // see, we're using hashmap and stuff...
 	std::list<int> temp_dead_list;
 
 public:
@@ -46,6 +46,7 @@ public:
 	}
 
 	void rule_1() {
+		// death by loneliness :(
 		int live = 0;
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
@@ -53,7 +54,7 @@ public:
 					live = live_count(i, j);
 					if (live < 2) {
 						next_matrix->set(i, j, 0);
-						// ADD TO HASHMAP ???
+						// ADD TO HASHMAP
 						temp_dead_list.push_back(i);
 						temp_dead_list.push_back(j);
 					}
@@ -62,6 +63,7 @@ public:
 		}
 	}
 	void rule_3() {
+		// death by party party party :)
 		int live = 0;
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
@@ -69,7 +71,7 @@ public:
 					live = live_count(i, j);
 					if (live > 3) {
 						next_matrix->set(i, j, 0);
-						// ADD TO HASHMAP ???
+						// ADD TO HASHMAP
 						temp_dead_list.push_back(i);
 						temp_dead_list.push_back(j);
 					}
@@ -78,7 +80,7 @@ public:
 		}
 	}
 	void rule_4() {
-		// resurrection by generation
+		// resurrection by generation  O:)
 
 		int resr_gen = generation - zombie_mode_wait_rate;
 

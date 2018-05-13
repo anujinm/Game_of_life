@@ -6,7 +6,6 @@
 #include "newGame.h"
 #include "By_Queue.h"
 #include "By_Generation.h"
-//using namespace std;
 #include "welcome_screen.h"
 
 
@@ -20,14 +19,12 @@ void hidecursor()
 	SetConsoleCursorInfo(consoleHandle, &info);
 }
 
+/*
+* change console cursor's position
+-- https://stackoverflow.com/questions/34842526/update-console-without-flickering-c/34843392?noredirect=1#comment57465505_34843392
+-- http://www.cplusplus.com/forum/articles/10515/
+*/
 void move_cursor_to_zero() {
-	// I'M USING THIS TO TRY TO REDUCE THE CONSOLE FLICKERING ON EVERY SCREEN REFRESH
-	// https://stackoverflow.com/questions/34842526/update-console-without-flickering-c/34843392?noredirect=1#comment57465505_34843392    might wanna check this ???
-	// http://www.cplusplus.com/forum/articles/10515/
-	// OR COULD TRY   DOUBLE BUFFERING   TOO ...
-
-	// code from cs2 final project lol
-	//change console cursor's position
 	static CONSOLE_SCREEN_BUFFER_INFO csbi;
 	static HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	csbi.dwCursorPosition.X = 0;
@@ -35,8 +32,24 @@ void move_cursor_to_zero() {
 	SetConsoleCursorPosition(consoleHandle, csbi.dwCursorPosition);
 }
 
+/*
+* move and resize console window
+-- https://stackoverflow.com/questions/25912721/set-console-window-size-on-windows
+-- https://stackoverflow.com/questions/21238806/how-to-set-output-console-width-in-visual-studio
+*/
+void resize_console() {
+	HWND console_window = GetConsoleWindow();
+	RECT r;
+	GetWindowRect(console_window, &r); //stores the console's current dimensions
+
+	if (console_window != NULL) {
+		MoveWindow(console_window, r.left, r.top, 1000, 600, TRUE);   
+	}
+}
+
 int main()
 {
+	resize_console();
 	system("cls");
 	hidecursor();
 	welcome::start_screen();

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <random>
 #include <ctime>
+#include <list>
 
 #include "matrix.h"
 
@@ -13,6 +14,7 @@ protected:
 	int col;
 	Matrix *matrix;
 	Matrix *next_matrix;
+	std::list<int> live_count_list;
 
 public:
 	newGame() {

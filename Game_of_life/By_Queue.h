@@ -1,7 +1,8 @@
 #pragma once
 
-#include "newGame.h"
 #include <deque>
+
+#include "newGame.h"
 
 
 
@@ -14,7 +15,7 @@ class By_Queue : public newGame
 {
 private:
 	int resurrection_rate = 10;
-	std::deque<int> dead_queue;
+	std::deque<int> dead_queue;   // we're using a queue here !! notice it ! thank you !
 
 public:
 	By_Queue() : newGame() {}
@@ -32,6 +33,7 @@ public:
 	}
 
 	void rule_1() {
+		// death by underpopulation
 		int live = 0;
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
@@ -48,6 +50,7 @@ public:
 		}
 	}
 	void rule_3() {
+		// death by overpopulation
 		int live = 0;
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
