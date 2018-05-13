@@ -32,7 +32,7 @@ public:
 
 
 
-	virtual void iterate() {
+	void iterate() {
 		temp_dead_list = {};
 
 		rule_1();

@@ -13,13 +13,13 @@ private:
 	int row;
 	int col;
 	int** matrix;
+
 public:
 	Matrix() {
 		matrix = NULL;
 		row = 0;
 		col = 0;
 	}
-
 	Matrix(const int size_row, const int size_col) {
 		matrix = NULL;
 		row = size_row;
@@ -42,6 +42,8 @@ public:
 		delete matrix;
 		matrix = NULL;
 	}
+
+
 
 	int get(int i, int j) {
 		if (matrix != NULL && i >= 0 && i < row && j >= 0 && j < col) {

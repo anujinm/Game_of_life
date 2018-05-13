@@ -57,6 +57,7 @@ namespace welcome {
 					///std::cout << coord.Y << std::endl;
 					if (coord.X>0 && coord.X<39 && coord.Y>0 && coord.Y<7) {   // if clicked inside box
 						flag = false;
+						system("cls");
 						break;
 					}
 				}
