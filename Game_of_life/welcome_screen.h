@@ -71,7 +71,7 @@ namespace welcome {
 
 
 	static int choose_what_to_do() {
-		std::cout << "1. newGame" << std::endl;
+		std::cout << "1. Original game" << std::endl;
 		std::cout << "2. By_Generation" << std::endl;
 		std::cout << "3. By_Queue" << std::endl;
 

@@ -50,9 +50,14 @@ int main()
 	else if (choice==3)
 		game = new By_Queue(30, 40);
 
+	/* couple options to try out 
+	uncomment one of these and comment out the rest */
 
+	//game->set_state_1();
+	//game->set_state_full();
 	game->set_state_random();
-	for (int i = 0; i < 1000; i++) {
+
+	for (int i = 0; i < 100; i++) {
 		//system("CLS");
 		move_cursor_to_zero();
 		game->print();
