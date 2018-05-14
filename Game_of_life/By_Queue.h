@@ -14,22 +14,17 @@
 class By_Queue : public newGame
 {
 private:
-	int resurrection_rate = 10;
+	int resurrection_rate;
 	std::deque<int> dead_queue;   // we're using a queue here !! notice it ! thank you !
 
 public:
-	By_Queue() : newGame() {}
-	By_Queue(const int size_row, const int size_col) : newGame(size_row, size_col) {}
+	By_Queue() : newGame() {
+		resurrection_rate = 10;
+	}
+	By_Queue(const int size_row, const int size_col, int resurrection_rate1) : newGame(size_row, size_col) {
+		resurrection_rate = resurrection_rate1;
+	}
 	~By_Queue() {}
-
-
-
-	void set_resurrection_rate(int r) {
-		resurrection_rate = r;
-	}
-	int get_resurrection_rate() {
-		return resurrection_rate;
-	}
 
 
 	

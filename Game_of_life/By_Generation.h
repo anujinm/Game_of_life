@@ -15,7 +15,7 @@
 class By_Generation : public newGame
 {
 private:
-	int zombie_mode_wait_rate = 5;
+	int zombie_mode_wait_rate;
 	int generation;
 	std::map<int, std::list<int>> dead_generation_map;   // see, we're using hashmap and stuff...
 	std::list<int> temp_dead_list;
@@ -23,21 +23,13 @@ private:
 public:
 	By_Generation() : newGame() {   // constructor
 		generation = 1;
+		zombie_mode_wait_rate = 5;
 	}
-	By_Generation(const int size_row, const int size_col) : newGame(size_row, size_col) {   // also constructor
+	By_Generation(const int size_row, const int size_col, int zombie_mode_wait_rate1) : newGame(size_row, size_col) {   // also constructor
 		generation = 1;
+		zombie_mode_wait_rate = zombie_mode_wait_rate1;
 	}
 	~By_Generation() {}
-
-
-
-	void set_zombie_mode_wait_rate(int wr) {
-		zombie_mode_wait_rate = wr;
-	}
-	int get_zombie_mode_wait_rate() {
-		return zombie_mode_wait_rate;
-	}
-
 
 
 	void iterate() {

@@ -56,12 +56,24 @@ int main()
 
 	newGame *game;
 	int choice = welcome::choose_what_to_do();
-	if (choice==1)
+	int zombie_mode_wait_rate = 0;
+	int resurrection_rate = 0;
+
+	if (choice == 3) {
+
+	}
+	if (choice == 1)
 		game = new newGame(30, 40);
-	else if (choice == 2)
-		game = new By_Generation(30, 40);
-	else if (choice==3)
-		game = new By_Queue(30, 40);
+	else if (choice == 2) {
+		std::cout << "How long do you want to keep a dead cell in a zombie mode before resurrecting it?  ";
+		std::cin >> zombie_mode_wait_rate;
+		game = new By_Generation(30, 40, zombie_mode_wait_rate);
+	}
+	else if (choice == 3) {
+		std::cout << "How many cells do you want to resurrect per generation?  ";
+		std::cin >> resurrection_rate;
+		game = new By_Queue(30, 40, resurrection_rate);
+	}
 
 	/* couple options to try out 
 	uncomment one of these and comment out the rest */
@@ -70,12 +82,12 @@ int main()
 	//game->set_state_full();
 	game->set_state_random();
 
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 1000; i++) {
 		//system("CLS");
 		move_cursor_to_zero();
 		game->print();
 		game->iterate();
-		Sleep(300);
+		Sleep(100);
 	}
 
 

@@ -81,7 +81,7 @@ public:
 	}
 
 	void print_pretty() {
-		//srand(time(NULL));
+		srand(time(NULL));
 
 		char c = 219;
 		for (int i = 0; i < row; i++) {

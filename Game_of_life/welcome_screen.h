@@ -3,6 +3,7 @@
 #include <iostream>
 
 
+
 namespace welcome {
 
 	static void start_screen() {
@@ -72,15 +73,20 @@ namespace welcome {
 
 
 	static int choose_what_to_do() {
-		std::cout << "*************************" << std::endl;
-		std::cout << "* 1. Original game      *" << std::endl;
-		std::cout << "* 2. By_Generation      *" << std::endl;
-		std::cout << "* 3. By_Queue           *" << std::endl;
-		std::cout << "*************************" << std::endl;
+		std::cout << "*******************************" << std::endl;
+		std::cout << "*******************************" << std::endl;
+		std::cout << "***                         ***" << std::endl;
+		std::cout << "***   1. Original game      ***" << std::endl;
+		std::cout << "***   2. By_Generation      ***" << std::endl;
+		std::cout << "***   3. By_Queue           ***" << std::endl;
+		std::cout << "***                         ***" << std::endl;
+		std::cout << "*******************************" << std::endl;
+		std::cout << "*******************************" << std::endl;
 
 		std::cout << "\n\n\n\n\nEnter you choice: ";
 		int choice;
 		std::cin >> choice;
+
 
 		return choice;
 	}
