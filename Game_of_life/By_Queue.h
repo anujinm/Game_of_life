@@ -23,6 +23,15 @@ public:
 	~By_Queue() {}
 
 
+
+	void set_resurrection_rate(int r) {
+		resurrection_rate = r;
+	}
+	int get_resurrection_rate() {
+		return resurrection_rate;
+	}
+
+
 	
 	void iterate() {
 		rule_1();

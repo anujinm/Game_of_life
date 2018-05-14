@@ -47,18 +47,18 @@ namespace Unit_test
 
 	TEST_CLASS(bygeneration_test){
 	public:
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(zombie_mode_wait_rate)
 		{
-			// TODO: Your test code here
+			// set / get wait rate thing
 		}
 
 	};
 
 	TEST_CLASS(byqueue_test){
 	public:
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(resurrection_rate)
 		{
-			// TODO: Your test code here
+			// set and get resurrection rate
 		}
 
 	};

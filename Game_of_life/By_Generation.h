@@ -21,14 +21,22 @@ private:
 	std::list<int> temp_dead_list;
 
 public:
-	By_Generation() : newGame() {
+	By_Generation() : newGame() {   // constructor
 		generation = 1;
 	}
-	By_Generation(const int size_row, const int size_col) : newGame(size_row, size_col) {
+	By_Generation(const int size_row, const int size_col) : newGame(size_row, size_col) {   // also constructor
 		generation = 1;
 	}
 	~By_Generation() {}
 
+
+
+	void set_zombie_mode_wait_rate(int wr) {
+		zombie_mode_wait_rate = wr;
+	}
+	int get_zombie_mode_wait_rate() {
+		return zombie_mode_wait_rate;
+	}
 
 
 

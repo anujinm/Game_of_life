@@ -78,6 +78,8 @@ int main()
 		Sleep(300);
 	}
 
+
+
 	delete game; game = NULL;
 
 	return 0;
