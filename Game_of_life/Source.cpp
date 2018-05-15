@@ -59,7 +59,6 @@ int main()
 	system("cls");
 	hidecursor();
 
-	
 	// start
 	welcome::start_screen();
 
@@ -75,7 +74,7 @@ int main()
 		game = new By_Queue(30, 40, welcome::ask_res_rate());
 	}
 
-
+	system("cls");
 
 	/* couple options to try out 
 	uncomment one of these and comment out the rest */
@@ -83,15 +82,20 @@ int main()
 	//game->set_state_1();
 	//game->set_state_full();
 	game->set_state_random();
+	game->print();
 
-	for (int i = 0; i < 1000; i++) {
+	for (int i = 0; i < 320; i++) {
 		///system("CLS");
 		move_cursor_to_zero();
-		game->print();
 		game->iterate();
-		//show_stats();
-		Sleep(100);
+		game->print();
+		game->show_stats();
+		Sleep(50);
 	}
+
+
+
+	game->export_data(choice);
 
 
 

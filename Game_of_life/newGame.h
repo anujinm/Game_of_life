@@ -2,7 +2,8 @@
 #include <iostream>
 #include <random>
 #include <ctime>
-#include <list>
+#include <map>
+#include <fstream>
 
 #include "matrix.h"
 
@@ -14,7 +15,8 @@ protected:
 	int col;
 	Matrix *matrix;
 	Matrix *next_matrix;
-	std::list<int> live_count_list;
+	std::map<int,int> live_count_map;    // map of number of live cells every generation
+	int generation;
 
 public:
 	// constructors and destructors
@@ -23,12 +25,14 @@ public:
 		next_matrix = NULL;
 		row = 0;
 		col = 0;
+		generation = 0;
 	}
 	newGame(const int size_row, const int size_col) {
 		next_matrix = new Matrix(size_row, size_col);
 		matrix = new Matrix(size_row, size_col);
 		row = size_row;
 		col = size_col;
+		generation = 0;
 	}
 	~newGame() {
 		delete matrix;
@@ -58,13 +62,47 @@ public:
 
 
 
+	// print
 	void print() {
 		matrix->print_pretty();
 	}
+	void show_stats() {
+		std::cout << "\ngeneration : " << generation << "                 " << std::endl;
+		std::cout << "\nlive count : " << live_count_map[generation] << "                 " << std::endl;
+	}
+
+
+	void export_data(int i) {
+		// export data to text file
+		std::ofstream file1;
+
+		if (i == 1) {
+			file1.open("\\\\cs1\\2021\\asthapit21\\CS-273-1\\Game_of_life\\Game_of_life\\original_data.csv", std::ios::out);
+		}
+		else if (i == 2) {
+			file1.open("\\\\cs1\\2021\\asthapit21\\CS-273-1\\Game_of_life\\Game_of_life\\by_generation_data.csv", std::ios::out);
+		}
+		else if (i == 3) {
+			file1.open("\\\\cs1\\2021\\asthapit21\\CS-273-1\\Game_of_life\\Game_of_life\\by_queue_data.csv", std::ios::out);
+		}
+
+		for (int i = 0; i < 301; i++) {
+			file1 << i << ", " << live_count_map[i] << "\n";
+		}
+		file1.close();
+
+		if (file1.is_open()){
+
+		}
+	}
+
 
 
 	// the simulation
 	virtual void iterate() {
+		generation++;
+		count_live_cells();
+
 		rule_1();
 		rule_2();
 		rule_3();
@@ -123,6 +161,20 @@ public:
 				}
 			}
 		}
+	}
+
+
+	void count_live_cells() {
+		// count number of live cells in each generation and store in map
+		int live_number = 0;
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				if (matrix->get(i, j) == 1) {
+					live_number += 1;
+				}
+			}
+		}
+		live_count_map[generation] = live_number;
 	}
 
 protected:

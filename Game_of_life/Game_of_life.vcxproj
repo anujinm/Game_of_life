@@ -150,6 +150,9 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="by_generation_data.csv" />
+    <Text Include="by_queue_data.csv" />
+    <Text Include="original_data.csv" />
     <Text Include="todo.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

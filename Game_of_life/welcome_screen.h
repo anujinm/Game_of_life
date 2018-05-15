@@ -7,15 +7,31 @@
 namespace welcome {
 
 	static void draw_start_button(int x) {
-		std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
-		std::cout << "                                    ****************************************" << std::endl;
-		std::cout << "                                    *      ____ _____  _    ____ _____     *" << std::endl;
-		std::cout << "                                    *     / ___|_   _|/ \\  |  _ \\_   _|    *" << std::endl;
-		std::cout << "                                    *     \\___ \\ | | / _ \\ | |_) || |      *" << std::endl;
-		std::cout << "                                    *      ___) || |/ ___ \\|  _ < | |      *" << std::endl;
-		std::cout << "                                    *     |____/ |_/_/   \\_\\_| \\_\\|_|      *" << std::endl;
-		std::cout << "                                    *                                      *" << std::endl;
-		std::cout << "                                    ****************************************" << std::endl;
+		// draw the start button
+		if (x==0) {
+			std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+			std::cout << "                                    ****************************************" << std::endl;
+			std::cout << "                                    *      ____ _____  _    ____ _____     *" << std::endl;
+			std::cout << "                                    *     / ___|_   _|/ \\  |  _ \\_   _|    *" << std::endl;
+			std::cout << "                                    *     \\___ \\ | | / _ \\ | |_) || |      *" << std::endl;
+			std::cout << "                                    *      ___) || |/ ___ \\|  _ < | |      *" << std::endl;
+			std::cout << "                                    *     |____/ |_/_/   \\_\\_| \\_\\|_|      *" << std::endl;
+			std::cout << "                                    *                                      *" << std::endl;
+			std::cout << "                                    ****************************************" << std::endl;
+		}
+		else if (x==1) {
+			std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+			std::cout << "                                 ~** * ****     *   /*****    /**      %*****//~" << std::endl;
+			std::cout << "                                    * *  **********/*  ******** ******* *  *" << std::endl;
+			std::cout << "                                    *      ____ _____  _    ____ _____     **" << std::endl;
+			std::cout << "                                   /      / ___|_   _|/ \\  |  _ \\_   _|      *" << std::endl;
+			std::cout << "                                   \\*     \\___ \\ | | / _ \\ | |_) || |       *" << std::endl;
+			std::cout << "                                    *      ___) || |/ ___ \\|  _ < | |      *" << std::endl;
+			std::cout << "                                   **     |____/ |_/_/   \\_\\_| \\_\\|_|       /" << std::endl;
+			std::cout << "                                    *                                      *" << std::endl;
+			std::cout << "                                   * *************  *%****** ******    /** *" << std::endl;
+			std::cout << "                                 %****%        ******      ****   ****%  * **\\" << std::endl;
+		}
 	}
 
 	static void start_screen() {
@@ -36,7 +52,7 @@ namespace welcome {
 		
 
 
-		draw_start_button();
+		draw_start_button(0);
 		int x = 36; int x_size = 39;
 		int y = 12; int y_size = 7;   // location and size of this button
 
@@ -65,6 +81,9 @@ namespace welcome {
 					//std::cout << coord.Y << std::endl;
 					if (coord.X>x && coord.X<(x+x_size) && coord.Y>y && coord.Y<(y+y_size)) {   // if clicked inside box
 						flag = false;
+						system("cls");
+						draw_start_button(1);
+						Sleep(500);
 						system("cls");
 						break;
 					}
@@ -102,17 +121,29 @@ namespace welcome {
 
 
 	static int ask_wait_rate() {
+		// ask for by_generation wait rate
 		int zombie_mode_wait_rate;
 		std::cout << "How long do you want to keep a dead cell in a zombie mode before resurrecting it?  ";
-		std::cin >> zombie_mode_wait_rate;
+		do {
+			//input validation
+			std::cin >> zombie_mode_wait_rate;
+		} while (zombie_mode_wait_rate<1);
 		return zombie_mode_wait_rate;
 	}
 
+
 	static int ask_res_rate() {
+		// ask for by_queue res rate
 		int resurrection_rate;
 		std::cout << "How many cells do you want to resurrect per generation?  ";
-		std::cin >> resurrection_rate;
+		do {
+			// input validation
+			std::cin >> resurrection_rate;
+		} while (resurrection_rate<1);
 		return resurrection_rate;
 	}
+
+
+
 
 }

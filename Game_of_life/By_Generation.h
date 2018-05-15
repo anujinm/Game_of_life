@@ -16,18 +16,15 @@ class By_Generation : public newGame
 {
 private:
 	int zombie_mode_wait_rate;
-	int generation;
-	std::map<int, std::list<int>> dead_generation_map;   // see, we're using hashmap and stuff...
+	std::map<int, std::list<int>> dead_generation_map;
 	std::list<int> temp_dead_list;
 
 public:
 	// constructors and stuff
 	By_Generation() : newGame() {
-		generation = 1;
 		zombie_mode_wait_rate = 5;
 	}
 	By_Generation(const int size_row, const int size_col, int zombie_mode_wait_rate1) : newGame(size_row, size_col) {
-		generation = 1;
 		zombie_mode_wait_rate = zombie_mode_wait_rate1;
 	}
 	~By_Generation() {}
@@ -37,6 +34,8 @@ public:
 	// the simulation
 	void iterate() {
 		temp_dead_list = {};
+		generation++;
+		count_live_cells();
 
 		rule_1();
 		rule_2();
@@ -44,8 +43,6 @@ public:
 		dead_generation_map[generation] = temp_dead_list;   // add to hashmap
 		rule_4();
 		copy_backward();
-
-		generation++;
 	}
 
 	void rule_1() {

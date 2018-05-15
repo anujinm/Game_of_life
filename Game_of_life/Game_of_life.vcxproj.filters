@@ -43,5 +43,14 @@
     <Text Include="todo.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="by_generation_data.csv">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="by_queue_data.csv">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="original_data.csv">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

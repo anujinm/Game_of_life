@@ -2,7 +2,7 @@
 
 input validation.
 
-record number of live cells for each generatinon
+record number of live cells for each generation
 
 
 

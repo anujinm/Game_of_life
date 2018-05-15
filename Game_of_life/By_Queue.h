@@ -15,7 +15,7 @@ class By_Queue : public newGame
 {
 private:
 	int resurrection_rate;
-	std::deque<int> dead_queue;   // we're using a queue here !! notice it ! thank you !
+	std::deque<int> dead_queue;
 
 public:
 	//constructors and stuff
@@ -30,6 +30,9 @@ public:
 
 	
 	void iterate() {
+		generation++;
+		count_live_cells();
+
 		rule_1();
 		rule_2();
 		rule_3();
@@ -46,8 +49,7 @@ public:
 					live = live_count(i, j);
 					if (live < 2) {
 						next_matrix->set(i, j, 0);
-						// ADD TO QUEUE
-						dead_queue.push_back(i);
+						dead_queue.push_back(i);   // add to queue
 						dead_queue.push_back(j);
 					}
 				}
@@ -63,8 +65,7 @@ public:
 					live = live_count(i, j);
 					if (live > 3) {
 						next_matrix->set(i, j, 0);
-						// ADD TO QUEUE
-						dead_queue.push_back(i);
+						dead_queue.push_back(i);   // add to queue
 						dead_queue.push_back(j);
 					}
 				}
