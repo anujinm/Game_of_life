@@ -2,23 +2,18 @@
 
 input validation.
 
-record number of live cells for each generation
-
-
-
-
-
-show stats:
-
-	- initial no. of live cells
-	- COUNT OF LIVE CELLS !   for every gen
-	- count of dead cells         "
 
 
 
 
 
 
+
+
+
+
+
+REQUIREMENTS SPECIFICATION    !!!!!
 
 
 
