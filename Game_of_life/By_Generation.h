@@ -21,17 +21,20 @@ private:
 	std::list<int> temp_dead_list;
 
 public:
-	By_Generation() : newGame() {   // constructor
+	// constructors and stuff
+	By_Generation() : newGame() {
 		generation = 1;
 		zombie_mode_wait_rate = 5;
 	}
-	By_Generation(const int size_row, const int size_col, int zombie_mode_wait_rate1) : newGame(size_row, size_col) {   // also constructor
+	By_Generation(const int size_row, const int size_col, int zombie_mode_wait_rate1) : newGame(size_row, size_col) {
 		generation = 1;
 		zombie_mode_wait_rate = zombie_mode_wait_rate1;
 	}
 	~By_Generation() {}
 
 
+
+	// the simulation
 	void iterate() {
 		temp_dead_list = {};
 
@@ -54,7 +57,6 @@ public:
 					live = live_count(i, j);
 					if (live < 2) {
 						next_matrix->set(i, j, 0);
-						// ADD TO HASHMAP
 						temp_dead_list.push_back(i);
 						temp_dead_list.push_back(j);
 					}
@@ -71,7 +73,6 @@ public:
 					live = live_count(i, j);
 					if (live > 3) {
 						next_matrix->set(i, j, 0);
-						// ADD TO HASHMAP
 						temp_dead_list.push_back(i);
 						temp_dead_list.push_back(j);
 					}
@@ -81,7 +82,6 @@ public:
 	}
 	void rule_4() {
 		// resurrection by generation  O:)
-
 		int resr_gen = generation - zombie_mode_wait_rate;
 
 		if (generation - zombie_mode_wait_rate >= 1) {

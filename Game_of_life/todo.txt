@@ -1,0 +1,42 @@
+
+
+input validation.
+
+record number of live cells for each generatinon
+
+
+
+
+
+show stats:
+
+	- initial no. of live cells
+	- COUNT OF LIVE CELLS !   for every gen
+	- count of dead cells         "
+
+
+
+
+
+
+
+
+
+FINAL DELIVERABLE   !!!!!
+
+	- graph of live-cells vs. generation    (  1 each for ori, gen, que  )
+
+
+
+
+
+
+
+
+
+JUST INFO :
+
+	uses (or usefulness) of this simulation ? :
+		- cellular automata
+			- public key cryptosystem (cryptography, because they are really complicated, so hard to crack)
+		- (soft) artificial life

@@ -17,20 +17,19 @@ protected:
 	std::list<int> live_count_list;
 
 public:
+	// constructors and destructors
 	newGame() {
 		matrix = NULL;
 		next_matrix = NULL;
 		row = 0;
 		col = 0;
 	}
-
 	newGame(const int size_row, const int size_col) {
 		next_matrix = new Matrix(size_row, size_col);
 		matrix = new Matrix(size_row, size_col);
 		row = size_row;
 		col = size_col;
 	}
-
 	~newGame() {
 		delete matrix;
 		delete next_matrix;
@@ -40,6 +39,7 @@ public:
 
 
 
+	// set/get functions
 	void set(int i, int j, int num) {
 		matrix->set(i, j, num);
 		next_matrix->set(i, j, num);
@@ -49,8 +49,10 @@ public:
 		return matrix->get(row, col);
 	}
 
-	// State 1 has to be bigger than 20 rows and 35 columns
-	void set_state_1();
+	
+
+	// initial states
+	void set_state_1();   // State 1 has to be bigger than 20 rows and 35 columns
 	void set_state_random();
 	void set_state_full();
 
@@ -60,6 +62,8 @@ public:
 		matrix->print_pretty();
 	}
 
+
+	// the simulation
 	virtual void iterate() {
 		rule_1();
 		rule_2();

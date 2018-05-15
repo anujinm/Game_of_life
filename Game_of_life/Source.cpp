@@ -1,3 +1,8 @@
+/*
+	Anujin Munkhbat , Amon Ratna Sthapit
+	Simulation of Conway's Game of Life with some interesting modifications.
+*/
+
 #include<iostream>
 #include<stdlib.h>
 #include<Windows.h>
@@ -43,37 +48,34 @@ void resize_console() {
 	GetWindowRect(console_window, &r); //stores the console's current dimensions
 
 	if (console_window != NULL) {
-		MoveWindow(console_window, r.left, r.top, 1000, 600, TRUE);   
+		MoveWindow(console_window, r.left, r.top, 1000, 650, TRUE);   
 	}
 }
 
 int main()
 {
+	// console stuff
 	resize_console();
 	system("cls");
 	hidecursor();
+
+	
+	// start
 	welcome::start_screen();
 
 	newGame *game;
 	int choice = welcome::choose_what_to_do();
-	int zombie_mode_wait_rate = 0;
-	int resurrection_rate = 0;
 
-	if (choice == 3) {
-
-	}
 	if (choice == 1)
 		game = new newGame(30, 40);
 	else if (choice == 2) {
-		std::cout << "How long do you want to keep a dead cell in a zombie mode before resurrecting it?  ";
-		std::cin >> zombie_mode_wait_rate;
-		game = new By_Generation(30, 40, zombie_mode_wait_rate);
+		game = new By_Generation(30, 40, welcome::ask_wait_rate());
 	}
 	else if (choice == 3) {
-		std::cout << "How many cells do you want to resurrect per generation?  ";
-		std::cin >> resurrection_rate;
-		game = new By_Queue(30, 40, resurrection_rate);
+		game = new By_Queue(30, 40, welcome::ask_res_rate());
 	}
+
+
 
 	/* couple options to try out 
 	uncomment one of these and comment out the rest */
@@ -83,10 +85,11 @@ int main()
 	game->set_state_random();
 
 	for (int i = 0; i < 1000; i++) {
-		//system("CLS");
+		///system("CLS");
 		move_cursor_to_zero();
 		game->print();
 		game->iterate();
+		//show_stats();
 		Sleep(100);
 	}
 

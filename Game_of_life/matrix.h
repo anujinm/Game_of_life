@@ -15,6 +15,7 @@ private:
 	int** matrix;
 
 public:
+	//constructors and destructors
 	Matrix() {
 		matrix = NULL;
 		row = 0;
@@ -33,7 +34,6 @@ public:
 			}
 		}
 	}
-
 	~Matrix() {
 		for (int i = 0; i < row; i++) {
 			delete matrix[i];
@@ -45,6 +45,7 @@ public:
 
 
 
+	// get/set stuff
 	int get(int i, int j) {
 		if (matrix != NULL && i >= 0 && i < row && j >= 0 && j < col) {
 			return matrix[i][j];
@@ -71,6 +72,9 @@ public:
 		return col;
 	}
 
+
+
+	// print
 	void print() {
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {

@@ -18,6 +18,7 @@ private:
 	std::deque<int> dead_queue;   // we're using a queue here !! notice it ! thank you !
 
 public:
+	//constructors and stuff
 	By_Queue() : newGame() {
 		resurrection_rate = 10;
 	}

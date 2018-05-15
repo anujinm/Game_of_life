@@ -6,6 +6,18 @@
 
 namespace welcome {
 
+	static void draw_start_button(int x) {
+		std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+		std::cout << "                                    ****************************************" << std::endl;
+		std::cout << "                                    *      ____ _____  _    ____ _____     *" << std::endl;
+		std::cout << "                                    *     / ___|_   _|/ \\  |  _ \\_   _|    *" << std::endl;
+		std::cout << "                                    *     \\___ \\ | | / _ \\ | |_) || |      *" << std::endl;
+		std::cout << "                                    *      ___) || |/ ___ \\|  _ < | |      *" << std::endl;
+		std::cout << "                                    *     |____/ |_/_/   \\_\\_| \\_\\|_|      *" << std::endl;
+		std::cout << "                                    *                                      *" << std::endl;
+		std::cout << "                                    ****************************************" << std::endl;
+	}
+
 	static void start_screen() {
 		//ascii
 		//http://patorjk.com/software/taag/#p=display&f=Standard&t=START
@@ -17,22 +29,16 @@ namespace welcome {
 		//IF NOT WORKING, TRY:
 		/*Opening command-prompt and right-clicking on its title-bar and then clicking 'Defaults'
 			A Dialog box would appear, titled 'Console Windows Properties'. There in Options tab, under Edit Options sub-heading, you would find 'Quick Edit Mode' checkbox!
-			The problem was being caused by this 'Quick Edit Mode' option which was enabled(checkbox is checked) by default on my Windows 10. And in this enabled status, this 'Quick Edit Mode' was consuming all the Mouse-Events and wasn't dispatching any to my '.exe' .
+			The problem was being caused by this 'Quick Edit Mode' option which was enabled(checkbox is checked) by default on my Windows 10. And in this enabled status, this
+			'Quick Edit Mode' was consuming all the Mouse-Events and wasn't dispatching any to my '.exe' .
 			When this 'Quick Edit Mode' options' checkbox is unchecked (disabled), then program runs fine as intended/coded in this sample-code here, telling/printing all Mouse events.
 			NOTE: The change in 'Console Properties' requires relaunch of the console, to take effect.*/
 		
-		std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
-		std::cout << "                                    ****************************************" << std::endl;
-		std::cout << "                                    *      ____ _____  _    ____ _____     *" << std::endl;
-		std::cout << "                                    *     / ___|_   _|/ \\  |  _ \\_   _|    *" << std::endl;
-		std::cout << "                                    *     \\___ \\ | | / _ \\ | |_) || |      *" << std::endl;
-		std::cout << "                                    *      ___) || |/ ___ \\|  _ < | |      *" << std::endl;
-		std::cout << "                                    *     |____/ |_/_/   \\_\\_| \\_\\|_|      *" << std::endl;
-		std::cout << "                                    *                                      *" << std::endl;
-		std::cout << "                                    ****************************************" << std::endl;
-		int x = 36; int x_size = 39;
-		int y = 12; int y_size = 7;   // location and size of button
 
+
+		draw_start_button();
+		int x = 36; int x_size = 39;
+		int y = 12; int y_size = 7;   // location and size of this button
 
 		// GET MOUSE CLICK
 		HANDLE hin = GetStdHandle(STD_INPUT_HANDLE);
@@ -64,7 +70,7 @@ namespace welcome {
 					}
 				}
 			}
-			//FlushConsoleInputBuffer(hin);
+			///FlushConsoleInputBuffer(hin);
 		}
 		SetConsoleMode(hin, fdwSaveOldMode);
 
@@ -73,6 +79,7 @@ namespace welcome {
 
 
 	static int choose_what_to_do() {
+		// type of simulation
 		std::cout << "*******************************" << std::endl;
 		std::cout << "*******************************" << std::endl;
 		std::cout << "***                         ***" << std::endl;
@@ -85,10 +92,27 @@ namespace welcome {
 
 		std::cout << "\n\n\n\n\nEnter you choice: ";
 		int choice;
-		std::cin >> choice;
-
-
+		do {
+			// input validation
+			std::cin >> choice;
+		} while (choice<1 || choice>3);
+		
 		return choice;
+	}
+
+
+	static int ask_wait_rate() {
+		int zombie_mode_wait_rate;
+		std::cout << "How long do you want to keep a dead cell in a zombie mode before resurrecting it?  ";
+		std::cin >> zombie_mode_wait_rate;
+		return zombie_mode_wait_rate;
+	}
+
+	static int ask_res_rate() {
+		int resurrection_rate;
+		std::cout << "How many cells do you want to resurrect per generation?  ";
+		std::cin >> resurrection_rate;
+		return resurrection_rate;
 	}
 
 }
