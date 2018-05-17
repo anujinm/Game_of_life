@@ -3,6 +3,7 @@
 input validation.
 
 
+export to file-handling    -    chekc if file exists / can be accessed .
 
 
 
@@ -13,13 +14,11 @@ input validation.
 
 
 
-REQUIREMENTS SPECIFICATION    !!!!!
+REQUIREMENTS SPECIFICATION    !!!!!   ?????
 
 
 
 FINAL DELIVERABLE   !!!!!
-
-	- graph of live-cells vs. generation    (  1 each for ori, gen, que  )
 
 
 

@@ -17,7 +17,7 @@ namespace Unit_test
 {		
 	TEST_CLASS(matrix_test){
 	public:
-		TEST_METHOD(row_0_col_0)
+		TEST_METHOD(matrix_row_0_col_0)
 		{
 			//empty matrix using default constructor
 			Matrix *m = new Matrix();
@@ -25,7 +25,7 @@ namespace Unit_test
 			Assert::AreEqual(m->get_col(), 0);
 			delete m;
 		}
-		TEST_METHOD(row_n_col_n)
+		TEST_METHOD(matrix_row_n_col_n)
 		{
 			//matrix using constructor (parameter)
 			Matrix *m = new Matrix(35,35);
@@ -33,14 +33,26 @@ namespace Unit_test
 			Assert::AreEqual(m->get_col(), 35);
 			delete m;
 		}
+		TEST_METHOD(matrix_set_n_get)
+		{
+			//matrix set and get
+			Matrix *m = new Matrix(5, 5);
+			m->set(3,3,1);
+			Assert::AreEqual(m->get(3, 3), 1);
+			delete m;
+		}
 
 	};
 
 	TEST_CLASS(newgame_test){
 	public:
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(newgame_set_n_get)
 		{
-			// TODO: Your test code here
+			// set and then get
+			newGame *ng = new newGame(5, 5);
+			ng->set(3, 3, 1);
+			Assert::AreEqual(ng->get(3, 3), 1);
+			delete ng;
 		}
 
 	};
@@ -49,7 +61,10 @@ namespace Unit_test
 	public:
 		TEST_METHOD(zombie_mode_wait_rate)
 		{
-			// set / get wait rate thing
+			// set / get wait rate
+			By_Generation *g = new By_Generation();
+			Assert::AreEqual(g->get_zombie_mode_wait_rate(), 5);
+			delete g;
 		}
 
 	};
@@ -58,7 +73,10 @@ namespace Unit_test
 	public:
 		TEST_METHOD(resurrection_rate)
 		{
-			// set and get resurrection rate
+			// set / get res rate
+			By_Queue *q = new By_Queue();
+			Assert::AreEqual(q->get_resurrection_rate(), 10);
+			delete q;
 		}
 
 	};

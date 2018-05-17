@@ -30,6 +30,15 @@ public:
 	~By_Generation() {}
 
 
+	// set / get
+	void set_zombie_mode_wait_rate(int wr) {
+		zombie_mode_wait_rate = wr;
+	}
+	int get_zombie_mode_wait_rate() {
+		return zombie_mode_wait_rate;
+	}
+
+
 
 	// the simulation
 	void iterate() {

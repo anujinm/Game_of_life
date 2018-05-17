@@ -28,6 +28,16 @@ public:
 	~By_Queue() {}
 
 
+
+	// set / get
+	void set_resurrection_rate(int rr) {
+		resurrection_rate = rr;
+	}
+	int get_resurrection_rate() {
+		return resurrection_rate;
+	}
+
+
 	
 	void iterate() {
 		generation++;
